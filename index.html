@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avery Luke | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --offwhite: #f2f4f6;
+      --text: #1a1a1a;
+      --blue-dark: #1e3a5f;
+      --blue-light: #2d5a8e;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      background: var(--offwhite);
+      border-bottom: 2px solid var(--blue-light);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--blue-dark);
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #444;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 1.5rem 1rem;
+      background: var(--white);
+    }
+
+    nav button {
+      border: 1.5px solid var(--blue-dark);
+      background: var(--white);
+      color: var(--blue-dark);
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    section {
+      opacity: 0;
+      transform: translateX(30px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: none;
+    }
+
+    section.active {
+      opacity: 1;
+      transform: translateX(0);
+      display: block;
+      position: relative;
+    }
+
+    section h2 {
+      color: var(--blue-dark);
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #666;
+      font-size: 0.95rem;
+      background: var(--offwhite);
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--blue-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Avery Luke</h1>
+    <p>
+      <!-- Insert your mission statement here -->
+      I produce story-driven video content for digital and broadcast platforms, crafting engaging narratives across vertical and horizontal formats.
+    </p>
+  </header>
+
+  <nav>
+    <button class="tab-button active" data-target="vertical">Vertical Video</button>
+    <button class="tab-button" data-target="horizontal">Horizontal Video</button>
+    <button class="tab-button" data-target="special">Special Projects</button>
+  </nav>
+
+  <main>
+    <section id="vertical" class="active">
+      <h2>Vertical Video</h2>
+      <div class="video-grid">
+        <!-- Instagram / TikTok embeds go here -->
+        <div class="video-embed">
+          <!-- Example embed: <iframe src="https://www.tiktok.com/embed/12345"></iframe> -->
+        </div>
+        <div class="video-embed">
+          <!-- Example embed: <iframe src="https://www.instagram.com/p/abc123/embed"></iframe> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="horizontal">
+      <h2>Horizontal Video</h2>
+      <div class="video-grid">
+        <!-- YouTube embeds go here -->
+        <div class="video-embed">
+          <!-- Example embed: <iframe src="https://www.youtube.com/embed/xyz789" frameborder="0" allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="special">
+      <h2>Special Projects</h2>
+      <div class="video-grid">
+        <!-- Special collaborations or branded work -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Avery Luke — <a href="bio.html">About & Contact</a></p>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const sections = document.querySelectorAll("main section");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        sections.forEach((s) => s.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
